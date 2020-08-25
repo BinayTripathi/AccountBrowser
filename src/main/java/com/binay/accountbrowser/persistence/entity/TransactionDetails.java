@@ -17,7 +17,7 @@ import lombok.Data;
 public class TransactionDetails {
 
 	@Id
-	int transactionId;
+	String transactionId;
 	
 	String accountNumber;
 	

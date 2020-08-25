@@ -4,10 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.binay.accountbrowser.exception.AccountNotFoundException;
 import com.binay.accountbrowser.persistence.entity.Account;
 import com.binay.accountbrowser.persistence.entity.TransactionDetails;
 import com.binay.accountbrowser.persistence.repository.AccountRepository;
@@ -23,14 +27,24 @@ public class AccountsController {
 	@Autowired
 	TransactionDetailsRepository transactionDetailsRepository;
 	
+	@Autowired
+	AccountModelAssembler accountModelAssembler;
+	
 	
 	@GetMapping("/accounts/{userName}")
-	public List<Account> getAccountsForUser(@PathVariable String userName) {
+	public ResponseEntity<CollectionModel<AccountsModel>> getAccountsForUser(@PathVariable String userName) {
 		
 		Optional<List<Account>> accountByUserName = accountRepository.getAccountByUserName(userName);
-		return accountByUserName.get();
+		if(!accountByUserName.isPresent()) {
+			throw new AccountNotFoundException("No accounts found for user " + userName);
+		}
+		
+		 CollectionModel<AccountsModel> accountModel = accountModelAssembler.toAccountModel(userName,accountByUserName.get());
+		 return new ResponseEntity<>(accountModel,HttpStatus.OK);
+		
 		
 	}
+	
 	
 	@GetMapping("/transactions/{account}")
 	public List<TransactionDetails> getTransactionsForAccount(@PathVariable String account) {
