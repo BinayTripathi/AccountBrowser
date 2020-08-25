@@ -1,4 +1,4 @@
-package com.binay.accounts.controller;
+package com.binay.accountbrowser.controller.accounts;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.binay.accounts.persistence.entity.Account;
-import com.binay.accounts.persistence.entity.TransactionDetails;
-import com.binay.accounts.persistence.repository.AccountRepository;
-import com.binay.accounts.persistence.repository.TransactionDetailsRepository;
+import com.binay.accountbrowser.persistence.entity.Account;
+import com.binay.accountbrowser.persistence.entity.TransactionDetails;
+import com.binay.accountbrowser.persistence.repository.AccountRepository;
+import com.binay.accountbrowser.persistence.repository.TransactionDetailsRepository;
+
+
 @RestController
-public class AccountBrowserController {
+public class AccountsController {
 	
 	@Autowired
 	private AccountRepository accountRepository;

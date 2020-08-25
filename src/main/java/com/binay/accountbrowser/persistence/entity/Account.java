@@ -1,4 +1,4 @@
-package com.binay.accounts.persistence.entity;
+package com.binay.accountbrowser.persistence.entity;
 
 import java.util.Date;
 
@@ -11,29 +11,27 @@ import javax.persistence.TemporalType;
 
 import lombok.Data;
 
-
 @Entity
 @Data
-public class TransactionDetails {
-
-	@Id
-	int transactionId;
+public class Account {
 	
+	@Id
 	String accountNumber;
 	
+	String userName;
+	
+	String accountName;
+	
+	@Enumerated(EnumType.STRING)
+	AccountType accountType;
+	
 	@Temporal(TemporalType.DATE)
-	Date valueDate;
+	Date balanceDate;
 	
 	@Enumerated(EnumType.STRING)
 	Currency currency;
 	
-	Double debitAmount;
+	Double openingBalance;
 	
-	Double creditAmount;
-	
-	@Enumerated(EnumType.STRING)
-	CardType cardType;
-	
-	String transactionNarative;
-	
+
 }

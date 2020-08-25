@@ -1,14 +1,14 @@
-package com.binay.accounts.persistence.dao;
+package com.binay.accountbrowser.persistence.dao;
 
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.binay.accounts.persistence.entity.Account;
-import com.binay.accounts.persistence.entity.AccountType;
-import com.binay.accounts.persistence.entity.Currency;
-import com.binay.accounts.persistence.repository.AccountRepository;
+import com.binay.accountbrowser.persistence.entity.Account;
+import com.binay.accountbrowser.persistence.entity.AccountType;
+import com.binay.accountbrowser.persistence.entity.Currency;
+import com.binay.accountbrowser.persistence.repository.AccountRepository;
 
 @Component
 public class AccountsDao {

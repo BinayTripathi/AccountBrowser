@@ -1,4 +1,4 @@
-package com.binay.accounts;
+package com.binay.accountbrowser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +8,10 @@ public class AccountBrowserApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AccountBrowserApplication.class, args);
+		
+		//HATEOS
+		//Controller advice
+		// Unittest
 	}
 
 }
