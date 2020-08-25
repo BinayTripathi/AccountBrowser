@@ -1,7 +1,7 @@
 # AccountBrowser
 
 
-[![Spring_Boot Framework](https://img.shields.io/badge/Springboot-2.2.6.RELEASE_Framework-blue.svg?style=plastic)](https://start.spring.io/) |[![Java](https://img.shields.io/badge/Java-java-blue.svg?style=plastic)](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html) | ![GitHub language count](https://img.shields.io/github/languages/count/BinayTripathi/ServiceVictoria-ChildrenInQueue.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/BinayTripathi/ServiceVictoria-ChildrenInQueue.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/BinayTripathi/ServiceVictoria-ChildrenInQueue.svg) 
+[![Spring_Boot Framework](https://img.shields.io/badge/Springboot-2.2.6.RELEASE_Framework-blue.svg?style=plastic)](https://start.spring.io/) |[![Java](https://img.shields.io/badge/Java-java-blue.svg?style=plastic)](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html) | ![GitHub language count](https://img.shields.io/github/languages/count/BinayTripathi/ServiceVictoria-ChildrenInQueue.svg) | ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/BinayTripathi/ServiceVictoria-ChildrenInQueue.svg) 
 | --- | ---          | ---        | ---      | ---        | 
 
 ---------------------------------------
@@ -80,7 +80,7 @@ test  . No password.]
 
 Having any trouble? Please read out this [documentation](https://github.com/BinayTripathi/AccountBrowser/blob/master/README.md) or [contact](mailto:binay.mckv@gmail.com) and to sort it out.
 
-  [![HitCount](http://hits.dwyl.comBinayTripathi/AccountBrowser.svg)](http://hits.dwyl.com/BinayTripathi/AccountBrowser) | ![GitHub contributors](https://img.shields.io/github/contributors/BinayTripathi/AccountBrowser)|
+  [![HitCount](http://hits.dwyl.com/BinayTripathi/AccountBrowser.svg)](http://hits.dwyl.com/BinayTripathi/AccountBrowser) | ![GitHub contributors](https://img.shields.io/github/contributors/BinayTripathi/AccountBrowser)|
  | --- | --- |
 
 
