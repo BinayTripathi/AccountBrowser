@@ -34,8 +34,6 @@ The overall objective of the applications :
 
 >   The application consists of 
 *  A client executable jar (AccountBrowser-0.0.1-SNAPSHOT.jar)
-*  Run on a default port of 8080.
-*  In-memory H2 databse is running at http://localhost:8080/h2-console/login.jsp
 
 ### Setup detail
 
@@ -68,9 +66,9 @@ test  . No password.]
 >   
 >   6. Response to above is json with all the accounts held by user if any else appropriate error is provided. **It also contains (HATEOS enabled) url associated with each account which can be clicked on the browser to see the transactions associated with that account as json**  
 >   
->   6. Transactions for any account can also be obtained by directly checking for the end point **http://localhost:8080/transactions/account/{account-number}**  example http://localhost:8080/transactions/account/AC1
+>   7. Transactions for any account can also be obtained by directly checking for the end point **http://localhost:8080/transactions/account/{account-number}**  example http://localhost:8080/transactions/account/AC1
 
-```
+
 
 ##### To open the project in Spring Tool Suite (or Eclipse)
 >   1. Open **Spring Tool Suite** .
