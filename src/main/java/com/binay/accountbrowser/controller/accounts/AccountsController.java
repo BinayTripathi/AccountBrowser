@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.binay.accountbrowser.exception.AccountNotFoundException;
+import com.binay.accountbrowser.exception.TrancationNotFoundException;
 import com.binay.accountbrowser.persistence.entity.Account;
 import com.binay.accountbrowser.persistence.entity.TransactionDetails;
 import com.binay.accountbrowser.persistence.repository.AccountRepository;
@@ -31,7 +32,7 @@ public class AccountsController {
 	AccountModelAssembler accountModelAssembler;
 	
 	
-	@GetMapping("/accounts/{userName}")
+	@GetMapping("/accounts/user/{userName}")
 	public ResponseEntity<CollectionModel<AccountsModel>> getAccountsForUser(@PathVariable String userName) {
 		
 		Optional<List<Account>> accountByUserName = accountRepository.getAccountByUserName(userName);
@@ -46,11 +47,15 @@ public class AccountsController {
 	}
 	
 	
-	@GetMapping("/transactions/{account}")
-	public List<TransactionDetails> getTransactionsForAccount(@PathVariable String account) {
+	@GetMapping("/transactions/account/{account}")
+	public ResponseEntity<List<TransactionDetails>> getTransactionsForAccount(@PathVariable String account) {
 		
 		Optional<List<TransactionDetails>> transactionDetails = transactionDetailsRepository.getTransactionDetailsByAccountNumber(account);
-		return transactionDetails.get();
+		if(!transactionDetails.isPresent()) {
+			throw new TrancationNotFoundException("No transactions found for the account " + account);
+		}
+		
+		return new ResponseEntity<>(transactionDetails.get(),HttpStatus.OK);
 		
 	}
 
