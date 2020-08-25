@@ -1,4 +1,4 @@
-# Children In Queue Elimination problem 
+# AccountBrowser
 
 
 [![Spring_Boot Framework](https://img.shields.io/badge/Springboot-2.2.6.RELEASE_Framework-blue.svg?style=plastic)](https://start.spring.io/) |[![Java](https://img.shields.io/badge/Java-java-blue.svg?style=plastic)](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html) | ![GitHub language count](https://img.shields.io/github/languages/count/BinayTripathi/ServiceVictoria-ChildrenInQueue.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/BinayTripathi/ServiceVictoria-ChildrenInQueue.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/BinayTripathi/ServiceVictoria-ChildrenInQueue.svg) 
@@ -11,47 +11,31 @@
 The repository consists of projects as below:
 
 
-| # |Project Name | Project detail | location| Environment |
-| ---| ---  | ---           | ---          | --- |
-| 1 | ChildrenInCircleAlgo| Jar with algorithm logic |ChildrenInCircleAlgo | [![.SpringBoot framework](https://img.shields.io/badge/Springboot-2.2.6.RELEASE_Framework-blue.svg?style=plastic)](https://start.spring.io/)|
-| 2 |ChildrenInCircleEntry | Client to invoke the jar with algo logic |  ChildrenInCircleEntry | [![.Net Framework](https://img.shields.io/badge/Springboot-2.2.6.RELEASE_Framework-blue.svg?style=plastic)](https://start.spring.io/)| 
-| 3 | pom.xml | Parent maven POM  | Parent folder- ChildrenInCircle | [![Node](https://img.shields.io/badge/Maven-mvn-blue.svg?style=plastic)](https://maven.apache.org/download.cgi) |
+| # |Project Name | Project detail| Environment |
+| ---| ---  | ---            | --- |
+| 1 | AccountBrowser| Project with JPA, HATEOAS & REST | [![.SpringBoot framework](https://img.shields.io/badge/Springboot-2.2.6.RELEASE_Framework-blue.svg?style=plastic)](https://start.spring.io/)|
 
 ### Summary
 
 The overall objective of the applications :
 ```
->   The application provides the solution to *Children in Queue elimination problem*. 
+>   To demonstrate JPA and Rest API creation. 
 
->   As per the problem, for a given count of children (say n) and a skip sequence(k) every kth child is removed from the circular queue and we need the sequence of   elimination and the winner.
+>   HATEOAS has been used with the REST APIs - so that we clickable links from Account to Transactions are available
 
->   The application consists of a non-executable depedency jar project(ChildrenInCircleAlgo) which contains the algorithm . 
+>   Further used Flyway for database versioning.
 
->   The algorithm has a time complexity  of order O(nk) and space complexity of O(1) - ignoring a list that is used to collect the final outout.
+>   Sample Unit/Integration test using JUNIT5 has been added.
 
->   The application also has a client project - ChildrenInCircleEntry which uses the jar ChildrenInCircleAlgo-0.0.1-SNAPSHOT.jar  generated from the project ChildrenInCircleAlgo as a dependency. This client is for demonstration and the dependency jar can be used by any applcation.
-
->   A brief design of the dependency jar is as follows:  
-    *   Static method 'getEliminationSequenceAndWinner' of class 'ChildrenInCircle_GameManager' is invoked by the client. 
-    *   Abstract class 'IChildrenInCircleAlgo' is injected to the 'ChildrenInCircle_GameManager'. 
-    *   Class 'ChildrenInCircleIterativeAlgoImpl' that extends of 'IChildrenInCircleAlgo', has the actual implementation of the algorithm (see method 'getEliminationSequenceAndWinner' of class 'ChildrenInCircleIterativeAlgoImpl').
 ```
 
 
 ### Application design detail
 
 >   The application consists of 
-*  A client executable jar
-*  A non-executable depedency jar which can be used by any type of spring boot application (So that this is independent of **envirornemnt**)
-    
->   For a problem as this the over all **design seems to be overkill** however the purpose of the solution is 2-fold
-*  Formulate an optimal and feasible solution to problem at hand.
-*  Demonstrate design acumen and SpringBoot familiarity
-
-### Algorithm complexity
->   Time complexity **O(nk)**  
->   Space complexity **O(1)**  ignoring the List to hold the output sequence
-
+*  A client executable jar (AccountBrowser-0.0.1-SNAPSHOT.jar)
+*  Run on a default port of 8080.
+*  In-memory H2 databse is running at http://localhost:8080/h2-console/login.jsp
 
 ### Setup detail
 
@@ -67,33 +51,38 @@ The overall objective of the applications :
 
 ##### Project Setup detail
 
->   1. Please clone or download the repository from [![github](https://img.shields.io/badge/git-hub-blue.svg?style=plastic)](https://github.com/BinayTripathi/ServiceVictoria-ChildrenInQueue) 
+>   1. Please clone or download the repository from [![github](https://img.shields.io/badge/git-hub-blue.svg?style=plastic)]https://github.com/BinayTripathi/AccountBrowser) 
 >   
 #####  To build / run the application
 
->   1. Browse to the root folder ( **ChildrenInCircle** ) of the application 
+>   1. Open a new command prompt and browse to the root folder ( **AccountBrowser** ) of the application 
 >   
->   2. Within the new terminal, left mouse double click on **Build.bat** to download dependencies, compile the Java classes and run the Tests 
+>   2. Enter following command to build the project : **mvn clean install** 
 >   
->   3. To run the application, edit **Run.bat** and provide appropriate values of n( number of children) and k(skip sequence) . Then left mouse double click on the **Run.bat** to see results in **output.txt** (sample output provided)
+>   3. Enter following command to run the project with its default configuration: **java -jar target\AccountBrowser-0.0.1-SNAPSHOT.jar**
+>   
+>   4. To check im-momory database browse to **http://localhost:8080/h2-console/login.jsp**  [**JDBC url** : jdbc:h2:mem:accdet;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;  **User id** : 
+test  . No password.]
+>   
+>   5. End point exposed check for accounts held by user  **http://localhost:8080/accounts/user/{userName}**  [Example : http://localhost:8080/accounts/user/user1 ] . 
+>   
+>   6. Response to above is json with all the accounts held by user if any else appropriate error is provided. **It also contains (HATEOS enabled) url associated with each account which can be clicked on the browser to see the transactions associated with that account as json**  
+>   
+>   6. Transactions for any account can also be obtained by directly checking for the end point **http://localhost:8080/transactions/account/{account-number}**  example http://localhost:8080/transactions/account/AC1
 
-
-```
-Test results can be seen under 
-ChildrenInCircle\ChildrenInCircleAlgo\target\surefire-reports
 ```
 
 ##### To open the project in Spring Tool Suite (or Eclipse)
 >   1. Open **Spring Tool Suite** .
 >   2. Select **File** ->  **Import** and then select **Existing Maven Projects**
->   3. Browse to  **ChildrenInCircle** select pom.xml and click **Finish** to import the project.
+>   3. Browse to  **AccountBrowser** select pom.xml and click **Finish** to import the project.
 >   4. Run/Debug the project
 
 ### Support or Contact
 
-Having any trouble? Please read out this [documentation](https://github.com/BinayTripathi/ServiceVictoria-ChildrenInQueue/edit/master/README.md) or [contact](mailto:binay.mckv@gmail.com) and to sort it out.
+Having any trouble? Please read out this [documentation](https://github.com/BinayTripathi/AccountBrowser/blob/master/README.md) or [contact](mailto:binay.mckv@gmail.com) and to sort it out.
 
-  [![HitCount](http://hits.dwyl.com/BinayTripathi/ServiceVictoria-ChildrenInQueue.svg)](http://hits.dwyl.com/BinayTripathi/ServiceVictoria-ChildrenInQueue) | ![GitHub contributors](https://img.shields.io/github/contributors/BinayTripathi/ServiceVictoria-ChildrenInQueue)|
+  [![HitCount](http://hits.dwyl.comBinayTripathi/AccountBrowser.svg)](http://hits.dwyl.com/BinayTripathi/AccountBrowser) | ![GitHub contributors](https://img.shields.io/github/contributors/BinayTripathi/AccountBrowser)|
  | --- | --- |
 
 
