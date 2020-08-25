@@ -18,8 +18,11 @@ import com.binay.accountbrowser.persistence.entity.TransactionDetails;
 import com.binay.accountbrowser.persistence.repository.AccountRepository;
 import com.binay.accountbrowser.persistence.repository.TransactionDetailsRepository;
 
+import lombok.Setter;
+
 
 @RestController
+@Setter
 public class AccountsController {
 	
 	@Autowired

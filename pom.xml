@@ -50,6 +50,14 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/junit/junit <dependency> <groupId>junit</groupId> 
+			<artifactId>junit</artifactId> <version>4.13</version> <scope>test</scope> 
+			</dependency> <dependency> <groupId>org.mockito</groupId> <artifactId>mockito-all</artifactId> 
+			<version>1.10.19</version> <scope>test</scope> </dependency> -->
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -61,6 +69,47 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!-- junit 5 -->
+		<!-- <dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>3.2.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.4.2</version>
+            <scope>test</scope>
+        </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
+		 <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>1.4.0</version>
+            <scope>test</scope>
+        </dependency>
+
+<dependency>
+    <groupId>org.junit</groupId>
+    <artifactId>junit-bom</artifactId>
+    <version>5.7.0-M1</version>
+    <type>pom</type>
+</dependency>
 	</dependencies>
 
 	<build>
